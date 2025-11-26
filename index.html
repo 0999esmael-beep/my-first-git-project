@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home">Esmael Amano</a>
+      <button id="navToggle" class="nav-toggle" aria-label="Toggle navigation">☰</button>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button>
+      <nav class="site-nav" id="siteNav">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+   <section id="home" class="hero">
+      <div class="container">
+        <h1>Hi, I'm Esmael</h1>
+        <p>Frontend developer — I build simple, beautiful web experiences.</p>
+        <p><a class="cta" href="#projects">See my work</a></p>
+      </div>
+    </section>
+
+    <section id="about" class="about container">
+      <h2>About Me</h2>
+      <p>Short intro: who you are, what you do, technologies you like (HTML, CSS, JavaScript).</p>
+    </section>
+
+    <section id="projects" class="projects container">
+      <h2>Selected Projects</h2>
+      <div class="grid">
+        <article class="card">
+          <img src="images/placeholder-project-1.png" alt="Project 1 screenshot">
+          <h3>Project One</h3>
+          <p>Short description of the project. What it does and the tech used.</p>
+          <p><a href="#" class="button">View</a></p>
+        </article>
+
+        <article class="card">
+          <img src="images/placeholder-project-2.png" alt="Project 2 screenshot">
+          <h3>Project Two</h3>
+          <p>Short description of the project. Link to repo or demo.</p>
+          <p><a href="#" class="button">View</a></p>
+        </article>
+
+        <article class="card">
+          <img src="images/placeholder-project-3.png" alt="Project 3 screenshot">
+          <h3>Project Three</h3>
+          <p>Short description of the project.</p>
+          <p><a href="#" class="button">View</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact container">
+      <h2>Contact</h2>
+      <p>If you'd like to work together, send a message:</p>
+        <p class="contact-email">Email: <span id="emailText">your.email@example.com</span> <button id="copyEmail" class="button">Copy</button></p>
+      <form id="contactForm">
+        <label>
+          Name
+          <input type="text" name="name" id="name" required>
+        </label>
+        <label>
+          Email
+          <input type="email" name="email" id="email" required>
+        </label>
+        <label>
+          Message
+          <textarea name="message" id="message" rows="5" required></textarea>
+        </label>
+        <button type="submit" class="button">Send</button>
+        <p id="formMessage" class="form-message" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+
+    <!-- Image modal -->
+    <div id="modal" class="modal" aria-hidden="true">
+      <div class="modal-content" role="dialog" aria-modal="true">
+        <button id="modalClose" class="modal-close" aria-label="Close">×</button>
+        <img id="modalImg" src="" alt="Project screenshot">
+        <div id="modalCaption" class="modal-caption"></div>
+      </div>
+    </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span id="year"></span> YourName — Built with HTML, CSS & JavaScript</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+Place project screenshots or images here. Use names that match the paths in `index.html` (e.g. `placeholder-project-1.png`).
