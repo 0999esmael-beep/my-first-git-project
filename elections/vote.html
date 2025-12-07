@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vote Now - HUSUMS Elections</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="elections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-university"></i>
+                <span>HUSUMS</span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="vote-section">
+        <div class="container">
+            <div class="vote-container">
+                <div class="vote-header">
+                    <a href="index.html" class="back-link">
+                        <i class="fas fa-arrow-left"></i> Back to Elections
+                    </a>
+                    <i class="fas fa-cog settings-icon"></i>
+                </div>
+
+                <div class="vote-content">
+                    <h1><i class="fas fa-university"></i> HUSUMS VOTING</h1>
+                    <h2>Student Verification</h2>
+                    <p class="vote-subtitle">Exercise Your Democratic Right</p>
+
+                    <form id="verificationForm" class="verification-form">
+                        <input type="text" id="studentId" placeholder="Student ID (e.g., 1209/16)" required>
+                        <input type="text" id="fullName" placeholder="Full Name" required>
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>Remember me</span>
+                        </label>
+                        <button type="submit" class="btn btn-vote">CONTINUE TO VOTE</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="elections.js"></script>
+</body>
+</html>

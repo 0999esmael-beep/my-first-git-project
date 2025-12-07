@@ -1,0 +1,37 @@
+🚀 DEPLOY YOUR WEBSITE NOW - Copy and Paste These Commands
+
+Open your terminal (PowerShell or CMD) and run these commands ONE BY ONE:
+
+========================================
+STEP 1: Navigate to portfolio folder
+========================================
+cd D:\web\portfolio
+
+========================================
+STEP 2: Add all files to git
+========================================
+git add .
+
+========================================
+STEP 3: Commit your changes
+========================================
+git commit -m "Deploy HUSUMS Voting Website"
+
+========================================
+STEP 4: Push to GitHub
+========================================
+git push
+
+========================================
+
+✅ After running these commands, your website will be updated on GitHub!
+
+Then go to:
+https://github.com/YOUR-USERNAME/YOUR-REPO-NAME/settings/pages
+
+And enable GitHub Pages to get your live link!
+
+Your live link will be:
+https://YOUR-USERNAME.github.io/YOUR-REPO-NAME/
+
+========================================

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre-Deployment Test - HUSUMS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a3d3d 0%, #0d5555 100%);
+            color: white;
+            padding: 2rem;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(13, 85, 85, 0.5);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 2px solid #a3ff12;
+        }
+        h1 {
+            color: #a3ff12;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .test-section {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 1.5rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            border-left: 4px solid #a3ff12;
+        }
+        .test-section h2 {
+            color: #a3ff12;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .test-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 0.8rem 0;
+            padding: 0.5rem;
+        }
+        .checkbox {
+            width: 24px;
+            height: 24px;
+            accent-color: #a3ff12;
+        }
+        .link-test {
+            display: block;
+            background: #a3ff12;
+            color: #0a3d3d;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            margin: 0.5rem 0;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .link-test:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(163, 255, 18, 0.4);
+        }
+        .status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+        .status.ready {
+            background: #a3ff12;
+            color: #0a3d3d;
+        }
+        .status.pending {
+            background: #ff9800;
+            color: white;
+        }
+        .deploy-button {
+            display: block;
+            background: linear-gradient(90deg, #a3ff12, #8ee000);
+            color: #0a3d3d;
+            padding: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 10px;
+            margin: 2rem 0;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .deploy-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(163, 255, 18, 0.5);
+        }
+        .note {
+            background: rgba(255, 152, 0, 0.2);
+            border-left: 4px solid #ff9800;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 HUSUMS Website - Pre-Deployment Test</h1>
+        
+        <div class="test-section">
+            <h2>✅ Files Checklist</h2>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="check1" checked>
+                <label for="check1">index.html exists</label>
+                <span class="status ready">READY</span>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="check2" checked>
+                <label for="check2">styles.css exists</label>
+                <span class="status ready">READY</span>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="check3" checked>
+                <label for="check3">script.js exists</label>
+                <span class="status ready">READY</span>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="check4" checked>
+                <label for="check4">Profile image (myphoto.jpg) added</label>
+                <span class="status ready">READY</span>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="check5" checked>
+                <label for="check5">Elections folder exists</label>
+                <span class="status ready">READY</span>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🔗 Test All Pages</h2>
+            <p style="margin-bottom: 1rem;">Click each link to test if pages load correctly:</p>
+            
+            <a href="index.html" class="link-test" target="_blank">
+                🏠 Test Home Page
+            </a>
+            <a href="elections/index.html" class="link-test" target="_blank">
+                🗳️ Test Elections Page
+            </a>
+            <a href="elections/candidates.html" class="link-test" target="_blank">
+                👥 Test Candidates Page
+            </a>
+            <a href="elections/vote.html" class="link-test" target="_blank">
+                ✅ Test Vote Page
+            </a>
+            <a href="elections/results.html" class="link-test" target="_blank">
+                📊 Test Results Page
+            </a>
+        </div>
+
+        <div class="test-section">
+            <h2>📱 Mobile Test</h2>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="mobile1">
+                <label for="mobile1">Resize browser window to test mobile view</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="mobile2">
+                <label for="mobile2">Check if navigation menu works on mobile</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="mobile3">
+                <label for="mobile3">Verify all content is readable on small screens</label>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>🎨 Visual Test</h2>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="visual1">
+                <label for="visual1">Profile image displays correctly</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="visual2">
+                <label for="visual2">All icons load properly</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="visual3">
+                <label for="visual3">Colors look good (teal/lime green theme)</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="visual4">
+                <label for="visual4">All sections are properly aligned</label>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h2>⚡ Functionality Test</h2>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="func1">
+                <label for="func1">Navigation links work (smooth scrolling)</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="func2">
+                <label for="func2">Login modal opens and closes</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="func3">
+                <label for="func3">Contact form accepts input</label>
+            </div>
+            <div class="test-item">
+                <input type="checkbox" class="checkbox" id="func4">
+                <label for="func4">Mobile menu toggle works</label>
+            </div>
+        </div>
+
+        <div class="note">
+            <strong>⚠️ Important:</strong> Make sure ALL checkboxes above are checked before deploying!
+        </div>
+
+        <a href="https://app.netlify.com/drop" class="deploy-button" target="_blank">
+            🚀 READY TO DEPLOY? CLICK HERE!
+        </a>
+
+        <div class="test-section">
+            <h2>📋 Deployment Steps</h2>
+            <ol style="line-height: 2; padding-left: 2rem;">
+                <li>Click the "READY TO DEPLOY?" button above</li>
+                <li>Open File Explorer: D:\web\portfolio</li>
+                <li>Select all files (Ctrl + A)</li>
+                <li>Drag files to Netlify Drop page</li>
+                <li>Wait 30 seconds for deployment</li>
+                <li>Get your link and share it!</li>
+            </ol>
+        </div>
+
+        <div style="text-align: center; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(163, 255, 18, 0.3);">
+            <p style="color: #a3ff12; font-weight: bold;">Developed by Esmael Amano</p>
+            <p style="color: #b8c5c5; margin-top: 0.5rem;">© 2024 HUSUMS - All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script>
+        // Auto-save checkbox states
+        document.querySelectorAll('.checkbox').forEach(checkbox => {
+            checkbox.addEventListener('change', function() {
+                localStorage.setItem(this.id, this.checked);
+            });
+            
+            // Load saved state
+            const saved = localStorage.getItem(checkbox.id);
+            if (saved === 'true') {
+                checkbox.checked = true;
+            }
+        });
+
+        // Check if all tests are complete
+        function checkAllTests() {
+            const allChecked = Array.from(document.querySelectorAll('.checkbox'))
+                .every(cb => cb.checked);
+            
+            const deployBtn = document.querySelector('.deploy-button');
+            if (allChecked) {
+                deployBtn.style.animation = 'pulse 2s infinite';
+            }
+        }
+
+        document.querySelectorAll('.checkbox').forEach(cb => {
+            cb.addEventListener('change', checkAllTests);
+        });
+
+        // Add pulse animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

@@ -1,110 +1,121 @@
-// Mobile nav toggle
+// Mobile Navigation Toggle
 const navToggle = document.getElementById('navToggle');
-const siteNav = document.getElementById('siteNav');
-navToggle.addEventListener('click', ()=>{
-  siteNav.classList.toggle('show');
+const navMenu = document.getElementById('navMenu');
+
+navToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
 });
 
-// Smooth scrolling for nav links
-document.querySelectorAll('.site-nav a').forEach(link =>{
-  link.addEventListener('click', e =>{
-    const href = link.getAttribute('href');
-    if(href && href.startsWith('#')){
-      e.preventDefault();
-      const target = document.querySelector(href);
-      if(target) target.scrollIntoView({behavior:'smooth',block:'start'});
-      siteNav.classList.remove('show');
+// Close mobile menu when clicking on a link
+document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('active');
+    });
+});
+
+// Login Modal
+const loginModal = document.getElementById('loginModal');
+const loginLinks = document.querySelectorAll('a[href="#login"]');
+const closeModal = document.querySelector('.close');
+
+loginLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault();
+        loginModal.classList.add('active');
+        loginModal.style.display = 'flex';
+    });
+});
+
+closeModal.addEventListener('click', () => {
+    loginModal.classList.remove('active');
+    loginModal.style.display = 'none';
+});
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target === loginModal) {
+        loginModal.classList.remove('active');
+        loginModal.style.display = 'none';
     }
-  });
 });
 
-// Footer year
-document.getElementById('year').textContent = new Date().getFullYear();
-
-// Simple contact form handling (no real server)
-const form = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
-form.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
-  if(!name || !email || !message){
-    formMessage.textContent = 'Please fill out all fields.';
-    return;
-  }
-  // Fake submit: show success and clear
-  formMessage.textContent = 'Thanks! Your message was sent (locally).';
-  form.reset();
-  setTimeout(()=> formMessage.textContent='', 4000);
+// Back to Home link in modal
+document.querySelector('.back-link').addEventListener('click', (e) => {
+    e.preventDefault();
+    loginModal.classList.remove('active');
+    loginModal.style.display = 'none';
 });
 
-// --- Theme toggle (persist in localStorage)
-const themeToggle = document.getElementById('themeToggle');
-const root = document.documentElement;
-function applyTheme(theme){
-  if(theme === 'light'){
-    root.setAttribute('data-theme','light');
-    themeToggle.textContent = '☀️';
-  } else {
-    root.removeAttribute('data-theme');
-    themeToggle.textContent = '🌙';
-  }
-}
-const savedTheme = localStorage.getItem('theme') || 'dark';
-applyTheme(savedTheme);
-themeToggle.addEventListener('click', ()=>{
-  const current = localStorage.getItem('theme') || 'dark';
-  const next = current === 'dark' ? 'light' : 'dark';
-  localStorage.setItem('theme', next);
-  applyTheme(next);
+// Login Form Submission
+const loginForm = document.querySelector('.login-form');
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const studentId = loginForm.querySelector('input[type="text"]').value;
+    const fullName = loginForm.querySelectorAll('input[type="text"]')[1].value;
+    
+    // Simulate verification
+    alert(`Welcome ${fullName}!\nStudent ID: ${studentId}\n\nYou can now proceed to vote.`);
+    loginForm.reset();
 });
 
-// --- Project modal / lightbox
-const modal = document.getElementById('modal');
-const modalImg = document.getElementById('modalImg');
-const modalCaption = document.getElementById('modalCaption');
-const modalClose = document.getElementById('modalClose');
-function openModal(imgSrc, caption){
-  modalImg.src = imgSrc;
-  modalCaption.textContent = caption || '';
-  modal.setAttribute('aria-hidden','false');
-}
-function closeModal(){
-  modal.setAttribute('aria-hidden','true');
-  modalImg.src = '';
-}
-modalClose.addEventListener('click', closeModal);
-modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
-
-document.querySelectorAll('.card img, .card h3').forEach(el=>{
-  el.style.cursor = 'pointer';
-  el.addEventListener('click', (e)=>{
-    const card = el.closest('.card');
-    const img = card.querySelector('img');
-    const title = card.querySelector('h3')?.textContent || '';
-    if(img) openModal(img.src, title);
-  });
+// Contact Form Submission
+const contactForm = document.querySelector('.contact-form');
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = contactForm.querySelector('input[type="text"]').value;
+    const email = contactForm.querySelector('input[type="email"]').value;
+    const message = contactForm.querySelector('textarea').value;
+    
+    alert(`Thank you ${name}!\nYour message has been sent successfully.\nWe'll get back to you at ${email}`);
+    contactForm.reset();
 });
 
-// --- Copy email button
-const copyEmail = document.getElementById('copyEmail');
-const emailText = document.getElementById('emailText');
-if(copyEmail && emailText){
-  copyEmail.addEventListener('click', async ()=>{
-    const text = emailText.textContent.trim();
-    try{
-      await navigator.clipboard.writeText(text);
-      copyEmail.textContent = 'Copied';
-      setTimeout(()=> copyEmail.textContent = 'Copy', 2000);
-    }catch(err){
-      // fallback
-      const ta = document.createElement('textarea');
-      ta.value = text; document.body.appendChild(ta); ta.select();
-      try{ document.execCommand('copy'); copyEmail.textContent = 'Copied'; }
-      catch(e){ alert('Copy not supported'); }
-      ta.remove(); setTimeout(()=> copyEmail.textContent = 'Copy', 2000);
+// Smooth Scrolling
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href !== '#login' && href !== '#') {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+
+// Navbar background on scroll
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    if (window.scrollY > 50) {
+        navbar.style.background = 'rgba(10, 61, 61, 1)';
+    } else {
+        navbar.style.background = 'rgba(10, 61, 61, 0.95)';
     }
-  });
-}
+});
+
+// Animation on scroll
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
+
+// Observe all cards
+document.querySelectorAll('.about-card, .objective-card, .structure-column, .election-card').forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'all 0.6s ease';
+    observer.observe(card);
+});

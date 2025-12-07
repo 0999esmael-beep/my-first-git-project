@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results - HUSUMS Elections</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="elections.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-university"></i>
+                <span>HUSUMS</span>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="index.html">Elections</a></li>
+                <li><a href="candidates.html">Candidates</a></li>
+                <li><a href="results.html" class="active">Results</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="election-header">
+        <div class="container">
+            <h1><i class="fas fa-chart-bar"></i> Election Results</h1>
+            <p>Live results and statistics</p>
+        </div>
+    </section>
+
+    <section class="results-section">
+        <div class="container">
+            <div class="results-status">
+                <h2>Voting Status: <span class="status-live">LIVE</span></h2>
+                <p>Results will be finalized on December 20, 2024</p>
+            </div>
+
+            <div class="results-grid">
+                <div class="result-card">
+                    <h3><i class="fas fa-crown"></i> President</h3>
+                    <div class="result-item">
+                        <div class="candidate-name">John Doe</div>
+                        <div class="vote-bar">
+                            <div class="vote-fill" style="width: 45%"></div>
+                        </div>
+                        <div class="vote-count">45% (1,638 votes)</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="candidate-name">Jane Smith</div>
+                        <div class="vote-bar">
+                            <div class="vote-fill" style="width: 38%"></div>
+                        </div>
+                        <div class="vote-count">38% (1,383 votes)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 HUSUMS. All rights reserved.</p>
+            <p class="developer-credit">Developed by <strong>Esmael Amano</strong></p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
